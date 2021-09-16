@@ -1,5 +1,31 @@
 fun main() {
     println("Bem vindo ao Bytebank")
+    val contaRainer = Conta() //Essa variável "conta" está apenas apontando para o objeto/classe "Conta". "Conta não está dentro de "conta"
+    contaRainer.titular = "Rainer"
+    contaRainer.numero = 1000
+    contaRainer.saldo = 200.0
+
+    val contaVanessa = Conta()
+    contaVanessa.titular = "Vanessa"
+    contaVanessa.numero = 1001
+    contaVanessa.saldo = 300.0
+
+    println(contaVanessa.titular)
+    println(contaVanessa.numero)
+    println(contaVanessa.saldo)
+
+    println(contaRainer.titular)
+    println(contaRainer.numero)
+    println(contaRainer.saldo)
+}
+
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
+}
+
+fun testaLacos() {
     var i = 0
     while (i < 5) {
         val titular: String = "Rainer $i"
@@ -14,16 +40,14 @@ fun main() {
     }
 
 
-//    for (i in 5 downTo 1) {
-//
-//        if(i == 4) {
-//            continue
-//        }
+    for (i in 5 downTo 1) {
 
-
-//    testaCondicoes(saldo)
-
+        if(i == 4) {
+            continue
+        }
+    }
 }
+
 
 fun testaCondicoes(saldo: Double) {
     if (saldo > 0.0) {
