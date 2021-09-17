@@ -1,6 +1,7 @@
 fun main() {
     println("Bem vindo ao Bytebank")
-    val contaRainer = Conta() //Essa variável "conta" está apenas apontando para o objeto/classe "Conta". "Conta não está dentro de "conta"
+    val contaRainer =
+        Conta() //Essa variável "conta" está apenas apontando para o objeto/classe "Conta". "Conta não está dentro de "conta"
     contaRainer.titular = "Rainer"
     contaRainer.numero = 1000
     contaRainer.saldo = 200.0
@@ -41,6 +42,17 @@ fun main() {
     println("saque em excesso na conta da Vanessa")
     contaVanessa.saca(500.0)
     println(contaVanessa.saldo)
+
+    println("Transferência da conta da Vanessa para o Rainer")
+
+    if (contaVanessa.transfere(100.0, contaRainer)){
+        println("Transferência sucedida")
+    } else {
+        println("Falha na transferência")
+    }
+
+    println(contaRainer.saldo)
+    println(contaVanessa.saldo)
 }
 
 class Conta {
@@ -48,14 +60,23 @@ class Conta {
     var numero = 0
     var saldo = 0.0
 
-    fun deposita(valor: Double){
+    fun deposita(valor: Double) {
         this.saldo += valor
     }
 
     fun saca(valor: Double) {
-        if(saldo >= valor){
+        if (saldo >= valor) {
             saldo -= valor
         }
+    }
+
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.saldo += valor
+            return true
+        }
+        return false
     }
 }
 
@@ -98,7 +119,7 @@ fun testaLacos() {
 
     for (i in 5 downTo 1) {
 
-        if(i == 4) {
+        if (i == 4) {
             continue
         }
     }
