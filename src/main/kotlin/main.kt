@@ -4,61 +4,61 @@ fun main() {
         Conta() //Essa variável "conta" está apenas apontando para o objeto/classe "Conta". "Conta não está dentro de "conta"
     contaRainer.titular = "Rainer"
     contaRainer.numero = 1000
-    contaRainer.saldo = 200.0
+    contaRainer.setSaldo(-200.0)
 
     val contaVanessa = Conta()
     contaVanessa.titular = "Vanessa"
     contaVanessa.numero = 1001
-    contaVanessa.saldo = 300.0
+    contaVanessa.setSaldo(300.0)
 
     println(contaVanessa.titular)
     println(contaVanessa.numero)
-    println(contaVanessa.saldo)
+    println(contaVanessa.getSaldo())
 
     println(contaRainer.titular)
     println(contaRainer.numero)
-    println(contaRainer.saldo)
+    println(contaRainer.getSaldo())
 
-    println("depositando na conta do Rainer")
-    contaRainer.deposita(50.0)
-    println(contaRainer.saldo)
-
-    println("depositando na conta da Vanessa")
-    contaVanessa.deposita(70.0)
-    println(contaVanessa.saldo)
-
-    println("sacando na conta do Rainer")
-    contaRainer.saca(250.0)
-    println(contaRainer.saldo)
-
-    println("sacando na conta da Vanessa")
-    contaVanessa.saca(100.0)
-    println(contaVanessa.saldo)
-
-    println("saque em excesso na conta do Rainer")
-    contaRainer.saca(100.0)
-    println(contaRainer.saldo)
-
-    println("saque em excesso na conta da Vanessa")
-    contaVanessa.saca(500.0)
-    println(contaVanessa.saldo)
-
-    println("Transferência da conta da Vanessa para o Rainer")
-
-    if (contaVanessa.transfere(100.0, contaRainer)){
-        println("Transferência sucedida")
-    } else {
-        println("Falha na transferência")
-    }
-
-    println(contaRainer.saldo)
-    println(contaVanessa.saldo)
+//    println("depositando na conta do Rainer")
+//    contaRainer.deposita(50.0)
+//    println(contaRainer.saldo)
+//
+//    println("depositando na conta da Vanessa")
+//    contaVanessa.deposita(70.0)
+//    println(contaVanessa.saldo)
+//
+//    println("sacando na conta do Rainer")
+//    contaRainer.saca(250.0)
+//    println(contaRainer.saldo)
+//
+//    println("sacando na conta da Vanessa")
+//    contaVanessa.saca(100.0)
+//    println(contaVanessa.saldo)
+//
+//    println("saque em excesso na conta do Rainer")
+//    contaRainer.saca(100.0)
+//    println(contaRainer.saldo)
+//
+//    println("saque em excesso na conta da Vanessa")
+//    contaVanessa.saca(500.0)
+//    println(contaVanessa.saldo)
+//
+//    println("Transferência da conta da Vanessa para o Rainer")
+//
+//    if (contaVanessa.transfere(100.0, contaRainer)){
+//        println("Transferência sucedida")
+//    } else {
+//        println("Falha na transferência")
+//    }
+//
+//    println(contaRainer.saldo)
+//    println(contaVanessa.saldo)
 }
 
 class Conta {
     var titular = ""
     var numero = 0
-    var saldo = 0.0
+    private var saldo = 0.0
 
     fun deposita(valor: Double) {
         this.saldo += valor
@@ -73,10 +73,20 @@ class Conta {
     fun transfere(valor: Double, destino: Conta): Boolean {
         if (saldo >= valor) {
             saldo -= valor
-            destino.saldo += valor
+            destino.deposita(valor)
             return true
         }
         return false
+    }
+
+    fun getSaldo(): Double {
+        return saldo
+    }
+
+    fun setSaldo(valor: Double){
+        if (valor > 0) {
+            saldo = valor
+        }
     }
 }
 
