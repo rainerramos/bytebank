@@ -1,12 +1,10 @@
 fun main() {
     println("Bem vindo ao Bytebank")
     val contaRainer =
-        Conta() //Essa variável "conta" está apenas apontando para o objeto/classe "Conta". "Conta não está dentro de "conta"
-    contaRainer.titular = "Rainer"
-    contaRainer.numero = 1000
+        Conta("Rainer", 1000)
     contaRainer.deposita(200.0)
 
-    val contaVanessa = Conta()
+    val contaVanessa = Conta("Vanessa", 1001)
     contaVanessa.titular = "Vanessa"
     contaVanessa.numero = 1001
     contaVanessa.deposita(300.0)
@@ -45,7 +43,7 @@ fun main() {
 
     println("Transferência da conta da Vanessa para o Rainer")
 
-    if (contaVanessa.transfere(100.0, contaRainer)){
+    if (contaVanessa.transfere(100.0, contaRainer)) {
         println("Transferência sucedida")
     } else {
         println("Falha na transferência")
@@ -55,14 +53,16 @@ fun main() {
     println(contaVanessa.saldo)
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
+class Conta(
+    var titular: String,
+    var numero: Int
+) {
+
     var saldo = 0.0
         private set
 
     fun deposita(valor: Double) {
-        if(valor > 0) {
+        if (valor > 0) {
             this.saldo += valor
         }
     }
@@ -92,9 +92,9 @@ fun testaCopiasEReferencias() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaJoao = Conta()
+    val contaJoao = Conta("Joao", 1002)
     contaJoao.titular = "João"
-    var contaMaria = Conta()
+    var contaMaria = Conta("Maria", 1003)
     contaMaria.titular = "Maria"
     contaJoao.titular = "João"
 
