@@ -1,6 +1,17 @@
 fun main() {
     println("Bem vindo ao Bytebank")
 
+    val rainer = Funcionario(
+        nome = "Rainer",
+        cpf = "111.111.111-11",
+        salario = 1000.0,
+    )
+
+    println("nome ${rainer.nome}")
+    println("cpf ${rainer.cpf}")
+    println("salario ${rainer.salario}")
+    println("bonificação ${rainer.bonificacao()}")
+
     val vanessa = Gerente(
         nome = "Vanessa",
         cpf = "222.222.222-22",
