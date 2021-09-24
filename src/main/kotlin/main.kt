@@ -50,10 +50,18 @@ fun main() {
         println("falha na autenticação")
     }
 
+    val maria = Analista(
+        nome = "Maria",
+        cpf = "444.444.444-44",
+        salario = 3000.00
+    )
+
+
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(rainer)
     calculadora.registra(vanessa)
     calculadora.registra(gui)
+    calculadora.registra(maria)
 
     println("total de bonificação: ${calculadora.total}")
 }

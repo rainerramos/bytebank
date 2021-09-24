@@ -11,8 +11,9 @@ class Gerente(
 
     override val bonificacao: Double
         get() {
-        return super.salario * 0.2
-    }
+            println("bonificação gerente")
+            return super.bonificacao + salario
+        }
 
     fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {
