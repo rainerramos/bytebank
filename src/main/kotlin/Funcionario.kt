@@ -5,7 +5,6 @@ open class Funcionario(
 ) {
     open val bonificacao: Double
         get() {
-            println("bonificação funcionário")
             return salario * 0.1
         }
 }
