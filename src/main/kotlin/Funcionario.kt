@@ -4,6 +4,6 @@ abstract class Funcionario(
     val salario: Double
 ) {
     abstract val bonificacao: Double
-    
+
 
 }
