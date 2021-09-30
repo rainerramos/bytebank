@@ -1,9 +1,13 @@
 fun main() {
+    testaAutenticacao()
+}
+
+fun testaAutenticacao() {
     val gerente = Gerente(
-    nome = "Rainer",
-    cpf = "111.111.111-11",
-    salario = 1000.0,
-    senha = 1000
+        nome = "Rainer",
+        cpf = "111.111.111-11",
+        salario = 1000.0,
+        senha = 1000
     )
     val diretora = Diretor(
         nome = "Vanessa",
