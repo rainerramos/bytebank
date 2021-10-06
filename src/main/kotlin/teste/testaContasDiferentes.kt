@@ -1,3 +1,6 @@
+import modelo.ContaCorrente
+import modelo.ContaPoupança
+
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
         titular = "Rainer",
