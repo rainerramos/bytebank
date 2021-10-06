@@ -1,5 +1,5 @@
-import modelo.ContaCorrente
-import modelo.ContaPoupança
+import br.com.alura.bytebank.modelo.ContaCorrente
+import br.com.alura.bytebank.modelo.ContaPoupança
 
 fun testaCopiasEReferencias() {
 
