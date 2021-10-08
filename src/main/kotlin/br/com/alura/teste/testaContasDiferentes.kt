@@ -1,6 +1,6 @@
 import br.com.alura.bytebank.modelo.Cliente
 import br.com.alura.bytebank.modelo.ContaCorrente
-import br.com.alura.bytebank.modelo.ContaPoupança
+import br.com.alura.bytebank.modelo.ContaPoupanca
 import br.com.alura.bytebank.modelo.Endereco
 
 fun testaContasDiferentes() {
@@ -16,11 +16,12 @@ fun testaContasDiferentes() {
         numero = 1000
     )
     println("titular ${contaCorrente.titular}")
+
     println("nome do titular ${contaCorrente.titular.nome}")
     println("cpf do titular ${contaCorrente.titular.cpf}")
     println("endereço titular ${contaCorrente.titular.endereco.logradouro}")
 
-    val contaPoupança = ContaPoupança(
+    val contaPoupanca = ContaPoupanca(
         titular = Cliente(
             nome = "Vanessa",
             cpf = "",
@@ -30,21 +31,21 @@ fun testaContasDiferentes() {
     )
 
     contaCorrente.deposita(1000.0)
-    contaPoupança.deposita(1000.0)
+    contaPoupanca.deposita(1000.0)
 
     contaCorrente.saca(100.0)
-    contaPoupança.saca(100.0)
+    contaPoupanca.saca(100.0)
 
     println("saldo após saque corrente: ${contaCorrente.saldo}")
-    println("saldo após saque poupança: ${contaPoupança.saldo}")
+    println("saldo após saque poupança: ${contaPoupanca.saldo}")
 
-    contaCorrente.transfere(100.0, contaPoupança)
+    contaCorrente.transfere(100.0, contaPoupanca)
 
     println("saldo corrente após transferir para poupança: ${contaCorrente.saldo}")
-    println("saldo poupança após receber transferência: ${contaPoupança.saldo}")
+    println("saldo poupança após receber transferência: ${contaPoupanca.saldo}")
 
-    contaPoupança.transfere(100.0, contaCorrente)
+    contaPoupanca.transfere(100.0, contaCorrente)
 
-    println("saldo poupança após transferir para corrente: ${contaPoupança.saldo}")
+    println("saldo poupança após transferir para corrente: ${contaPoupanca.saldo}")
     println("saldo corrente após receber transferência: ${contaCorrente.saldo}")
 }

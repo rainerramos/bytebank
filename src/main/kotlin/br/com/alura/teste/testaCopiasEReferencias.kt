@@ -1,6 +1,6 @@
 import br.com.alura.bytebank.modelo.Cliente
 import br.com.alura.bytebank.modelo.ContaCorrente
-import br.com.alura.bytebank.modelo.ContaPoupança
+import br.com.alura.bytebank.modelo.ContaPoupanca
 
 fun testaCopiasEReferencias() {
 
@@ -15,7 +15,7 @@ fun testaCopiasEReferencias() {
 
     val contaJoao = ContaCorrente (joao, 1002)
     contaJoao.titular.nome = "João"
-    var contaMaria = ContaPoupança (Cliente(
+    var contaMaria = ContaPoupanca (Cliente(
         nome = "Maria",
         cpf = "",
         senha = 2
